@@ -1,0 +1,424 @@
+/* Bageri Liss - Seitenstil.
+ *
+ * Uebernommen aus bageri-liss/bageri-liss.html und unter .bageri gezogen,
+ * damit er sich nicht mit Tailwind beisst. Die Schriften kommen ueber
+ * next/font (siehe app/bageri-liss/layout.tsx), nicht mehr als data:-URIs.
+ */
+
+.bageri {
+    --paper:     #E4D2BC;
+    --paper-2:   #F1E4D2;
+    --cream:     #FAF6EF;
+    --ink:       #2E241C;
+    --ink-soft:  #5B4634;
+    --brown:     #6F4A2C;
+    --ochre:     #B4712A;
+    --honey:     #C08A10;
+    --rule:      #C9B197;
+    --card:      #F6EDE0;
+    --card-edge: #D3BB9F;
+    --shadow:    0 1px 2px rgba(46,36,28,.05), 0 10px 30px -16px rgba(46,36,28,.28);
+
+    /* Die drei Schriften laedt next/font, siehe app/bageri-liss/layout.tsx.
+       Die Zweitnennungen bleiben als Fallback stehen. */
+    --f-script: var(--font-pacifico), "Snell Roundhand", "Brush Script MT", cursive;
+    --f-serif:  var(--font-fraunces), "Iowan Old Style", Palatino, Georgia, serif;
+    --f-sans:   var(--font-karla), "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+
+    --s--1: .8125rem;
+    --s-0:  1.0625rem;
+    --s-1:  1.25rem;
+    --s-2:  1.6rem;
+    --s-3:  2.2rem;
+    --s-4:  3rem;
+
+    --measure: 36rem;
+    --wide: 70rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .bageri {
+      --paper:     #211913;
+      --paper-2:   #2B211A;
+      --cream:     #F6EEE2;
+      --ink:       #F0E3D1;
+      --ink-soft:  #C4AC8E;
+      --brown:     #DBB68A;
+      --ochre:     #DB9750;
+      --honey:     #E7B93C;
+      --rule:      #443428;
+      --card:      #2E241B;
+      --card-edge: #46362A;
+      --shadow:    0 1px 2px rgba(0,0,0,.45), 0 10px 30px -16px rgba(0,0,0,.75);
+    }
+  }
+
+  :root[data-theme="dark"] .bageri {
+    --paper:     #211913;
+    --paper-2:   #2B211A;
+    --cream:     #F6EEE2;
+    --ink:       #F0E3D1;
+    --ink-soft:  #C4AC8E;
+    --brown:     #DBB68A;
+    --ochre:     #DB9750;
+    --honey:     #E7B93C;
+    --rule:      #443428;
+    --card:      #2E241B;
+    --card-edge: #46362A;
+    --shadow:    0 1px 2px rgba(0,0,0,.45), 0 10px 30px -16px rgba(0,0,0,.75);
+  }
+
+  .bageri * { box-sizing: border-box; }
+
+  .bageri {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: var(--s-0);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .bageri h1, .bageri h2, .bageri h3 {
+    font-family: var(--f-serif);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    line-height: 1.1;
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -.01em;
+  }
+
+  .bageri p { margin: 0; }
+  .bageri a { color: inherit; }
+
+  .bageri a:focus-visible, .bageri button:focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .bageri img { max-width: 100%; }
+
+  .bageri .script { font-family: var(--f-script); font-weight: 400; letter-spacing: 0; }
+
+  .bageri .eyebrow {
+    font-family: var(--f-sans);
+    font-size: var(--s--1);
+    font-weight: 500;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--ochre);
+  }
+
+  .bageri .wrap { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+
+  /* ---------- top bar ---------- */
+  .bageri .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .bageri .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .85rem;
+  }
+
+  .bageri .topbar .script { font-size: var(--s-2); color: var(--brown); line-height: 1.4; }
+
+  .bageri .topbar nav { display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: var(--s--1); letter-spacing: .04em; }
+  .bageri .topbar nav a { text-decoration: none; color: var(--ink-soft); transition: color .18s ease; }
+  .bageri .topbar nav a:hover { color: var(--ochre); }
+
+  @media (max-width: 40rem) {
+    .bageri .topbar nav { display: none; }
+    .bageri .topbar .wrap { justify-content: center; }
+  }
+
+  /* ---------- hero ---------- */
+  .bageri .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(84vh, 44rem);
+    display: flex;
+    align-items: flex-end;
+    padding-block: clamp(4rem, 12vw, 8rem) clamp(2.5rem, 6vw, 4rem);
+    overflow: hidden;
+  }
+
+  .bageri .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 42%;
+    z-index: -2;
+  }
+
+  .bageri .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg,
+      rgba(28,20,13,.16) 0%,
+      rgba(28,20,13,.02) 28%,
+      rgba(28,20,13,.22) 52%,
+      rgba(28,20,13,.58) 78%,
+      rgba(28,20,13,.76) 100%);
+  }
+
+  .bageri .hero-inner { display: flex; flex-direction: column; gap: .95rem; align-items: flex-start; color: var(--cream); }
+  .bageri .hero .eyebrow { color: rgba(250,246,239,.85); letter-spacing: .34em; }
+
+  .bageri .hero .script {
+    font-size: clamp(2.9rem, 10vw, 5.5rem);
+    line-height: 1.15;
+    color: var(--cream);
+    text-shadow: 0 2px 26px rgba(20,14,9,.55);
+  }
+
+  .bageri .hero .tagline {
+    font-family: var(--f-serif);
+    font-style: italic;
+    font-size: clamp(var(--s-1), 3vw, var(--s-2));
+    color: rgba(250,246,239,.94);
+    margin-top: -.45rem;
+    text-shadow: 0 1px 16px rgba(20,14,9,.6);
+  }
+
+  .bageri .hero .where { color: rgba(250,246,239,.9); text-shadow: 0 1px 14px rgba(20,14,9,.6); }
+
+  .bageri .hero .status {
+    display: inline-block;
+    border: 1px solid rgba(250,246,239,.55);
+    padding: .5rem 1rem;
+    font-size: var(--s--1);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  @media (max-width: 40rem) {
+    .bageri .hero { min-height: 66vh; padding-block: clamp(3rem, 10vw, 5rem) 2rem; }
+    /* engerer Ausschnitt -> der Text landet auf der Fensterschrift,
+       darum unten kraeftiger abdunkeln, oben weiterhin hell */
+    .bageri .hero::after {
+      background: linear-gradient(180deg,
+        rgba(28,20,13,.14) 0%,
+        rgba(28,20,13,.02) 24%,
+        rgba(28,20,13,.42) 56%,
+        rgba(28,20,13,.80) 80%,
+        rgba(28,20,13,.91) 100%);
+    }
+  }
+
+  .bageri .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+  .bageri .btn {
+    display: inline-block;
+    font-family: var(--f-sans);
+    font-size: var(--s--1);
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .9rem 1.7rem;
+    border: 1px solid currentColor;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .bageri .btn--light { color: var(--cream); }
+  .bageri .btn--light:hover { background: var(--cream); color: var(--ink); }
+  .bageri .btn--dark { color: var(--brown); }
+  .bageri .btn--dark:hover { background: var(--brown); color: var(--paper); }
+
+  /* ---------- sections ---------- */
+  .bageri section { padding-block: clamp(3.5rem, 9vw, 6.5rem); }
+
+  .bageri .sec-head { display: flex; flex-direction: column; gap: 1rem; max-width: var(--measure); }
+  .bageri .sec-head h2 { font-size: clamp(var(--s-3), 6vw, var(--s-4)); color: var(--brown); }
+  .bageri .sec-head h2 em { font-style: normal; font-family: var(--f-script); font-size: .9em; }
+
+  .bageri .band-2 { background: var(--paper-2); border-block: 1px solid var(--rule); }
+
+  /* ---------- welcome ---------- */
+  .bageri .welcome-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 56rem) { .bageri .welcome-grid { grid-template-columns: 1.05fr .95fr; } }
+
+  .bageri .prose { display: flex; flex-direction: column; gap: 1.2rem; max-width: var(--measure); }
+  .bageri .prose p { color: var(--ink-soft); }
+  .bageri .prose p.lead { font-size: var(--s-1); color: var(--ink); line-height: 1.55; }
+
+  .bageri .pull {
+    margin: .5rem 0 0;
+    border-left: 2px solid var(--ochre);
+    padding: .2rem 0 .2rem 1.4rem;
+    font-family: var(--f-serif);
+    font-style: italic;
+    font-size: var(--s-1);
+    color: var(--ink);
+  }
+
+  .bageri .pull cite {
+    display: block;
+    font-family: var(--f-sans);
+    font-style: normal;
+    font-size: var(--s--1);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: .7rem;
+  }
+
+  .bageri figure { margin: 0; display: flex; flex-direction: column; gap: .7rem; }
+  .bageri figure img { display: block; width: 100%; height: auto; border: 1px solid var(--card-edge); }
+  .bageri figcaption { font-family: var(--f-serif); font-style: italic; font-size: var(--s--1); color: var(--ink-soft); }
+
+  /* ---------- sortiment ---------- */
+  .bageri .cards {
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .bageri .card {
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  /* height:auto is required — the width/height attributes would otherwise
+     fix both dimensions and aspect-ratio would never apply */
+  .bageri .card > img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  .bageri .card-body { padding: 1.5rem 1.4rem 1.6rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
+  .bageri .card h3 { font-size: var(--s-2); color: var(--brown); }
+  .bageri .card p { color: var(--ink-soft); font-size: var(--s-0); }
+
+  .bageri .card ul {
+    margin: auto 0 0;
+    padding: 1rem 0 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    font-size: var(--s--1);
+    color: var(--ink-soft);
+  }
+
+  .bageri .card li { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+
+  .bageri .card .kr {
+    font-family: var(--f-serif);
+    color: var(--brown);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .bageri .tag { font-size: var(--s--1); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ochre); }
+
+  /* honey card carries an illustrated panel instead of a photo */
+  .bageri .card--bees .panel {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(192,138,16,.20), transparent 60%),
+      var(--paper-2);
+    border-bottom: 1px solid var(--card-edge);
+  }
+
+  .bageri .card--bees .panel svg { width: 42%; height: auto; color: var(--honey); }
+  .bageri .card--bees .tag { color: var(--honey); }
+
+  /* ---------- gallery ---------- */
+  .bageri .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: clamp(2rem, 4vw, 2.5rem); }
+  .bageri .gallery img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--card-edge); }
+
+  /* ---------- hours ---------- */
+  .bageri .hours-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 52rem) { .bageri .hours-grid { grid-template-columns: .85fr 1.15fr; } }
+
+  .bageri .hours { display: flex; flex-direction: column; }
+
+  .bageri .hours .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .9rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .bageri .hours .row:first-child { border-top: 1px solid var(--rule); }
+  .bageri .hours .day { font-size: var(--s-0); }
+  .bageri .hours .time { font-family: var(--f-serif); font-size: var(--s-1); color: var(--brown); font-variant-numeric: tabular-nums; }
+  .bageri .hours .row.shut .day, .bageri .hours .row.shut .time { color: var(--ink-soft); font-style: italic; }
+
+  .bageri .note { margin-top: 1.5rem; font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); }
+
+  /* ---------- find ---------- */
+  .bageri .find-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 52rem) { .bageri .find-grid { grid-template-columns: 1fr 1fr; } }
+
+  .bageri .details { display: flex; flex-direction: column; gap: 1.6rem; }
+  .bageri .detail { display: flex; flex-direction: column; gap: .3rem; }
+  .bageri .detail .k { font-size: var(--s--1); font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
+  .bageri .detail .v { font-family: var(--f-serif); font-size: var(--s-1); color: var(--ink); }
+  .bageri .detail a { text-decoration-color: var(--ochre); text-underline-offset: 4px; }
+
+  .bageri .route { display: flex; flex-direction: column; gap: 1.1rem; margin: 0; padding: 0; }
+  .bageri .route div { display: grid; grid-template-columns: 1fr; gap: .2rem 1.25rem; }
+  @media (min-width: 34rem) { .bageri .route div { grid-template-columns: 8rem minmax(0, 1fr); } }
+  .bageri .route dt { font-size: var(--s--1); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ochre); line-height: 1.6; }
+  .bageri .route dd { margin: 0; color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  .bageri footer { background: var(--ink); color: var(--paper); padding-block: clamp(3rem, 7vw, 4.5rem); }
+  .bageri .foot-grid { display: grid; gap: 2.25rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); align-items: start; }
+  .bageri footer .script { font-size: var(--s-3); color: var(--paper); line-height: 1.3; }
+  .bageri footer .eyebrow { color: var(--ochre); }
+  .bageri footer .fcol { display: flex; flex-direction: column; gap: .45rem; }
+  .bageri footer a { text-decoration-color: var(--ochre); text-underline-offset: 4px; }
+  .bageri footer .fine { font-size: var(--s--1); color: color-mix(in srgb, var(--paper) 62%, transparent); }
+
+  .bageri .foot-rule {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+    font-size: var(--s--1);
+    color: color-mix(in srgb, var(--paper) 55%, transparent);
+  }
+
+  /* ---------- motion ---------- */
+  .bageri .rise { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .bageri .rise.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bageri * { animation: none !important; transition: none !important; }
+    .bageri .rise { opacity: 1; transform: none; }
+  }

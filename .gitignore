@@ -1,0 +1,35 @@
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.idea
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.tina/__generated__
+# typescript build info
+tsconfig.tsbuildinfo
+
+# von bageri-liss/build.py erzeugt (Quellen bleiben im Repo)
+/bageri-liss/dist/
+/bageri-liss/index.html

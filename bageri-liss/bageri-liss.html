@@ -1,0 +1,683 @@
+<meta charset="utf-8">
+<title>Bageri Liss</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bageri Liss i Almunge — surdegsbröd, bakverk, Laugengebäck och honung från egna bikupor. Hantverksmässigt och lokalproducerat i egen regi.">
+<script>document.documentElement.lang = "sv";</script>
+<style>
+__FONTS__
+
+  :root {
+    --paper:     #E4D2BC;
+    --paper-2:   #F1E4D2;
+    --cream:     #FAF6EF;
+    --ink:       #2E241C;
+    --ink-soft:  #5B4634;
+    --brown:     #6F4A2C;
+    --ochre:     #B4712A;
+    --honey:     #C08A10;
+    --rule:      #C9B197;
+    --card:      #F6EDE0;
+    --card-edge: #D3BB9F;
+    --shadow:    0 1px 2px rgba(46,36,28,.05), 0 10px 30px -16px rgba(46,36,28,.28);
+
+    --f-script: Pacifico, "Snell Roundhand", "Brush Script MT", cursive;
+    --f-serif:  Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+    --f-sans:   Karla, "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+
+    --s--1: .8125rem;
+    --s-0:  1.0625rem;
+    --s-1:  1.25rem;
+    --s-2:  1.6rem;
+    --s-3:  2.2rem;
+    --s-4:  3rem;
+
+    --measure: 36rem;
+    --wide: 70rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #211913;
+      --paper-2:   #2B211A;
+      --cream:     #F6EEE2;
+      --ink:       #F0E3D1;
+      --ink-soft:  #C4AC8E;
+      --brown:     #DBB68A;
+      --ochre:     #DB9750;
+      --honey:     #E7B93C;
+      --rule:      #443428;
+      --card:      #2E241B;
+      --card-edge: #46362A;
+      --shadow:    0 1px 2px rgba(0,0,0,.45), 0 10px 30px -16px rgba(0,0,0,.75);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:     #211913;
+    --paper-2:   #2B211A;
+    --cream:     #F6EEE2;
+    --ink:       #F0E3D1;
+    --ink-soft:  #C4AC8E;
+    --brown:     #DBB68A;
+    --ochre:     #DB9750;
+    --honey:     #E7B93C;
+    --rule:      #443428;
+    --card:      #2E241B;
+    --card-edge: #46362A;
+    --shadow:    0 1px 2px rgba(0,0,0,.45), 0 10px 30px -16px rgba(0,0,0,.75);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: var(--s-0);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--f-serif);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    line-height: 1.1;
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -.01em;
+  }
+
+  p { margin: 0; }
+  a { color: inherit; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img { max-width: 100%; }
+
+  .script { font-family: var(--f-script); font-weight: 400; letter-spacing: 0; }
+
+  .eyebrow {
+    font-family: var(--f-sans);
+    font-size: var(--s--1);
+    font-weight: 500;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--ochre);
+  }
+
+  .wrap { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .85rem;
+  }
+
+  .topbar .script { font-size: var(--s-2); color: var(--brown); line-height: 1.4; }
+
+  .topbar nav { display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: var(--s--1); letter-spacing: .04em; }
+  .topbar nav a { text-decoration: none; color: var(--ink-soft); transition: color .18s ease; }
+  .topbar nav a:hover { color: var(--ochre); }
+
+  @media (max-width: 40rem) {
+    .topbar nav { display: none; }
+    .topbar .wrap { justify-content: center; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(84vh, 44rem);
+    display: flex;
+    align-items: flex-end;
+    padding-block: clamp(4rem, 12vw, 8rem) clamp(2.5rem, 6vw, 4rem);
+    overflow: hidden;
+  }
+
+  .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 42%;
+    z-index: -2;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg,
+      rgba(28,20,13,.16) 0%,
+      rgba(28,20,13,.02) 28%,
+      rgba(28,20,13,.22) 52%,
+      rgba(28,20,13,.58) 78%,
+      rgba(28,20,13,.76) 100%);
+  }
+
+  .hero-inner { display: flex; flex-direction: column; gap: .95rem; align-items: flex-start; color: var(--cream); }
+  .hero .eyebrow { color: rgba(250,246,239,.85); letter-spacing: .34em; }
+
+  .hero .script {
+    font-size: clamp(2.9rem, 10vw, 5.5rem);
+    line-height: 1.15;
+    color: var(--cream);
+    text-shadow: 0 2px 26px rgba(20,14,9,.55);
+  }
+
+  .hero .tagline {
+    font-family: var(--f-serif);
+    font-style: italic;
+    font-size: clamp(var(--s-1), 3vw, var(--s-2));
+    color: rgba(250,246,239,.94);
+    margin-top: -.45rem;
+    text-shadow: 0 1px 16px rgba(20,14,9,.6);
+  }
+
+  .hero .where { color: rgba(250,246,239,.9); text-shadow: 0 1px 14px rgba(20,14,9,.6); }
+
+  .hero .status {
+    display: inline-block;
+    border: 1px solid rgba(250,246,239,.55);
+    padding: .5rem 1rem;
+    font-size: var(--s--1);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  @media (max-width: 40rem) {
+    .hero { min-height: 66vh; padding-block: clamp(3rem, 10vw, 5rem) 2rem; }
+    /* engerer Ausschnitt -> der Text landet auf der Fensterschrift,
+       darum unten kraeftiger abdunkeln, oben weiterhin hell */
+    .hero::after {
+      background: linear-gradient(180deg,
+        rgba(28,20,13,.14) 0%,
+        rgba(28,20,13,.02) 24%,
+        rgba(28,20,13,.42) 56%,
+        rgba(28,20,13,.80) 80%,
+        rgba(28,20,13,.91) 100%);
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-block;
+    font-family: var(--f-sans);
+    font-size: var(--s--1);
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .9rem 1.7rem;
+    border: 1px solid currentColor;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .btn--light { color: var(--cream); }
+  .btn--light:hover { background: var(--cream); color: var(--ink); }
+  .btn--dark { color: var(--brown); }
+  .btn--dark:hover { background: var(--brown); color: var(--paper); }
+
+  /* ---------- sections ---------- */
+  section { padding-block: clamp(3.5rem, 9vw, 6.5rem); }
+
+  .sec-head { display: flex; flex-direction: column; gap: 1rem; max-width: var(--measure); }
+  .sec-head h2 { font-size: clamp(var(--s-3), 6vw, var(--s-4)); color: var(--brown); }
+  .sec-head h2 em { font-style: normal; font-family: var(--f-script); font-size: .9em; }
+
+  .band-2 { background: var(--paper-2); border-block: 1px solid var(--rule); }
+
+  /* ---------- welcome ---------- */
+  .welcome-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 56rem) { .welcome-grid { grid-template-columns: 1.05fr .95fr; } }
+
+  .prose { display: flex; flex-direction: column; gap: 1.2rem; max-width: var(--measure); }
+  .prose p { color: var(--ink-soft); }
+  .prose p.lead { font-size: var(--s-1); color: var(--ink); line-height: 1.55; }
+
+  .pull {
+    margin: .5rem 0 0;
+    border-left: 2px solid var(--ochre);
+    padding: .2rem 0 .2rem 1.4rem;
+    font-family: var(--f-serif);
+    font-style: italic;
+    font-size: var(--s-1);
+    color: var(--ink);
+  }
+
+  .pull cite {
+    display: block;
+    font-family: var(--f-sans);
+    font-style: normal;
+    font-size: var(--s--1);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: .7rem;
+  }
+
+  figure { margin: 0; display: flex; flex-direction: column; gap: .7rem; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid var(--card-edge); }
+  figcaption { font-family: var(--f-serif); font-style: italic; font-size: var(--s--1); color: var(--ink-soft); }
+
+  /* ---------- sortiment ---------- */
+  .cards {
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  /* height:auto is required — the width/height attributes would otherwise
+     fix both dimensions and aspect-ratio would never apply */
+  .card > img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  .card-body { padding: 1.5rem 1.4rem 1.6rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
+  .card h3 { font-size: var(--s-2); color: var(--brown); }
+  .card p { color: var(--ink-soft); font-size: var(--s-0); }
+
+  .card ul {
+    margin: auto 0 0;
+    padding: 1rem 0 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    font-size: var(--s--1);
+    color: var(--ink-soft);
+  }
+
+  .card li { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+
+  .card .kr {
+    font-family: var(--f-serif);
+    color: var(--brown);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .tag { font-size: var(--s--1); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ochre); }
+
+  /* honey card carries an illustrated panel instead of a photo */
+  .card--bees .panel {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(192,138,16,.20), transparent 60%),
+      var(--paper-2);
+    border-bottom: 1px solid var(--card-edge);
+  }
+
+  .card--bees .panel svg { width: 42%; height: auto; color: var(--honey); }
+  .card--bees .tag { color: var(--honey); }
+
+  /* ---------- gallery ---------- */
+  .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: clamp(2rem, 4vw, 2.5rem); }
+  .gallery img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--card-edge); }
+
+  /* ---------- hours ---------- */
+  .hours-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 52rem) { .hours-grid { grid-template-columns: .85fr 1.15fr; } }
+
+  .hours { display: flex; flex-direction: column; }
+
+  .hours .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .9rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hours .row:first-child { border-top: 1px solid var(--rule); }
+  .hours .day { font-size: var(--s-0); }
+  .hours .time { font-family: var(--f-serif); font-size: var(--s-1); color: var(--brown); font-variant-numeric: tabular-nums; }
+  .hours .row.shut .day, .hours .row.shut .time { color: var(--ink-soft); font-style: italic; }
+
+  .note { margin-top: 1.5rem; font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); }
+
+  /* ---------- find ---------- */
+  .find-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 52rem) { .find-grid { grid-template-columns: 1fr 1fr; } }
+
+  .details { display: flex; flex-direction: column; gap: 1.6rem; }
+  .detail { display: flex; flex-direction: column; gap: .3rem; }
+  .detail .k { font-size: var(--s--1); font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
+  .detail .v { font-family: var(--f-serif); font-size: var(--s-1); color: var(--ink); }
+  .detail a { text-decoration-color: var(--ochre); text-underline-offset: 4px; }
+
+  .route { display: flex; flex-direction: column; gap: 1.1rem; margin: 0; padding: 0; }
+  .route div { display: grid; grid-template-columns: 1fr; gap: .2rem 1.25rem; }
+  @media (min-width: 34rem) { .route div { grid-template-columns: 8rem minmax(0, 1fr); } }
+  .route dt { font-size: var(--s--1); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ochre); line-height: 1.6; }
+  .route dd { margin: 0; color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--ink); color: var(--paper); padding-block: clamp(3rem, 7vw, 4.5rem); }
+  .foot-grid { display: grid; gap: 2.25rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); align-items: start; }
+  footer .script { font-size: var(--s-3); color: var(--paper); line-height: 1.3; }
+  footer .eyebrow { color: var(--ochre); }
+  footer .fcol { display: flex; flex-direction: column; gap: .45rem; }
+  footer a { text-decoration-color: var(--ochre); text-underline-offset: 4px; }
+  footer .fine { font-size: var(--s--1); color: color-mix(in srgb, var(--paper) 62%, transparent); }
+
+  .foot-rule {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+    font-size: var(--s--1);
+    color: color-mix(in srgb, var(--paper) 55%, transparent);
+  }
+
+  /* ---------- motion ---------- */
+  .rise { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .rise.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .rise { opacity: 1; transform: none; }
+  }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="script">Bageri Liss</span>
+    <nav>
+      <a href="#valkommen">Om oss</a>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#butiken">I butiken</a>
+      <a href="#oppettider">Öppettider</a>
+      <a href="#hitta">Hitta hit</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="__IMG_HERO__" alt="Bageri Liss skyltfönster med hyllor av bröd innanför rutan." width="1400" height="1400">
+  <div class="wrap">
+    <div class="hero-inner">
+      <h1 class="visually-hidden">Bageri Liss — bakverk och annat gott</h1>
+      <p class="eyebrow">Almunge · Uppland</p>
+      <p class="where">Lilla Väsby 15, en bit utanför Almunge</p>
+      <p class="status">Vi öppnar igen 26 augusti</p>
+      <a class="btn btn--light" href="#hitta">Hitta till oss</a>
+    </div>
+  </div>
+</section>
+
+<section id="valkommen">
+  <div class="wrap">
+    <div class="welcome-grid">
+      <div class="prose rise">
+        <p class="eyebrow">Välkommen</p>
+        <h2 style="font-size: clamp(var(--s-3), 6vw, var(--s-4)); color: var(--brown)">Hej <em class="script">Almunge!</em></h2>
+        <p class="lead">Bageri Liss är ett litet hantverksbageri i Lilla Väsby, en bit utanför Almunge. Här bakas allt i egen regi — inga halvfabrikat, ingen central bageriindustri, bara mjöl, vatten, salt och tid.</p>
+        <p>Bredvid surdegslimporna står kringlorna. På skyltarna i butiken står det både svenska och tyska — <em>Laugengebäck</em>, <em>fralla</em> och <em>Brötchen</em> sida vid sida. Tysk bakartradition mitt i Uppland, helt enkelt.</p>
+        <p>Vid sidan av ugnen står bikuporna. Honungen slungas på gården och vaxet tas till vara: det blir ljus, salvor och vaxdukar. Samma tanke som med brödet — att ta hand om det som finns här, hela vägen.</p>
+        <p>För beställningar eller frågor, ring 072 446 13 23 eller maila <a href="mailto:bageri@fl-ab.se">bageri@fl-ab.se</a>.</p>
+        <blockquote class="pull">
+          Längtar efter riktigt bröd och den fine Bagaren!
+          <cite>Kund på Facebook</cite>
+        </blockquote>
+      </div>
+
+      <figure class="rise">
+        <img src="__IMG_G1__" alt="Tårtbitar med vaniljkräm och hallon på ett fat, med caféets bord i bakgrunden." width="660" height="495" loading="lazy">
+        <figcaption>Dagens tårta, framme i caféet.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="sortiment" class="band-2">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <p class="eyebrow">Sortiment</p>
+      <h2>Allt kommer ur <em class="script">samma hus</em></h2>
+      <p style="color: var(--ink-soft)">Brödet, bakverken, kringlorna — och honungen från våra egna bikupor.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card rise">
+        <img src="__IMG_BROD__" alt="Frallor med vallmofrön och solrosfrön i en flätad korg." width="760" height="570" loading="lazy">
+        <div class="card-body">
+          <h3>Bröd</h3>
+          <p>Surdeg som får jäsa långsamt, rågbröd och matbröd. Ur ugnen på morgonen — och slut när det är slut.</p>
+          <ul>
+            <li><span>Grov rågbröd</span><span class="kr">70 kr</span></li>
+            <li><span>Lantbröd</span><span class="kr">70 kr</span></li>
+            <li><span>Havrekraft</span><span class="kr">70 kr</span></li>
+            <li><span>Fruktis</span><span class="kr">75 kr</span></li>
+            <li><span>Sirapslimpa</span><span class="kr">72,50 kr</span></li>
+            <li><span>Kavring</span><span class="kr">75 kr</span></li>
+            <li><span>Grötis</span><span class="kr">68 kr</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card rise">
+        <img src="__IMG_BAKVERK__" alt="Tårta med grädde och hallon i bageriets kyldisk." width="760" height="569" loading="lazy">
+        <div class="card-body">
+          <h3>Bakverk</h3>
+          <p>Tårtor, bullar och småbröd. Tårtor bakar vi gärna på beställning — hör av dig i god tid.</p>
+          <ul>
+            <li><span>Bullskorpor</span><span class="kr">35 kr</span></li>
+            <li><span>Tårtbitar</span><span class="kr"></span></li>
+            <li><span>Bullar och wienerbröd</span><span class="kr"></span></li>
+            <li><span>Tårtor på beställning</span><span class="kr"></span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card rise">
+        <img src="__IMG_LAUGEN__" alt="Korg med kringlor och laugenbullar, med skylten Laugengebäck bredvid." width="760" height="569" loading="lazy">
+        <div class="card-body">
+          <p class="tag">Tyskt bakverk</p>
+          <h3>Laugengebäck</h3>
+          <p>Kringlor och laugenbullar, frallor och fyllda piroger. Skyltarna står på två språk, som mycket annat här.</p>
+          <ul>
+            <li><span>Laugengebäck, kringla</span><span class="kr">22 kr</span></li>
+            <li><span>Fralla / Brötchen</span><span class="kr"></span></li>
+            <li><span>Fyllda piroger</span><span class="kr"></span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card card--bees rise">
+        <div class="panel">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M24 5 L39 13.5 L39 30.5 L24 39 L9 30.5 L9 13.5 Z"/>
+            <path d="M24 14 L31.5 18.2 L31.5 26.8 L24 31 L16.5 26.8 L16.5 18.2 Z" opacity=".5"/>
+            <path d="M13 43 q11 -4 22 0" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="tag">Från egna bikupor</p>
+          <h3>Honung &amp; vax</h3>
+          <p>Honung slungad på gården, och rent bivax som blir till ljus, salvor och vaxdukar. Samma bin som pollinerar markerna runt omkring.</p>
+          <ul>
+            <li><span>Honung på burk</span><span class="kr"></span></li>
+            <li><span>Bivaxljus</span><span class="kr"></span></li>
+            <li><span>Vaxdukar och salvor</span><span class="kr"></span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="butiken">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <p class="eyebrow">I butiken</p>
+      <h2>Kika in <em class="script">hos oss</em></h2>
+      <p style="color: var(--ink-soft)">Disken fylls på under morgonen. Det som står framme är det som bakats i dag.</p>
+    </div>
+
+    <div class="gallery rise">
+      <img src="__IMG_G2__" alt="Kyldisk med bakelser, tårtbitar och dryck." width="660" height="495" loading="lazy">
+      <img src="__IMG_G3__" alt="Fyllda frallor med spenat och ost i en korg vid kassan." width="660" height="660" loading="lazy">
+      <img src="__IMG_G4__" alt="Brödhyllan med limpor, kavring och handskrivna prisskyltar." width="660" height="495" loading="lazy">
+      <img src="__IMG_G5__" alt="Hyllor med nybakade limpor och surdegsbröd bakom prisskyltarna." width="660" height="495" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="oppettider" class="band-2">
+  <div class="wrap">
+    <div class="hours-grid">
+      <div class="sec-head rise">
+        <p class="eyebrow">Öppettider</p>
+        <h2>Kom <em class="script">förbi</em></h2>
+      </div>
+
+      <div class="rise">
+        <div class="hours">
+          <div class="row"><span class="day">Onsdag – fredag</span><span class="time">08:00 – 17:00</span></div>
+          <div class="row"><span class="day">Lördag</span><span class="time">09:00 – 14:00</span></div>
+          <div class="row shut"><span class="day">Söndag – tisdag</span><span class="time">Stängt</span></div>
+        </div>
+        <p class="note">Ring gärna innan du åker en längre sträcka — när brödet är slut för dagen är det slut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hitta">
+  <div class="wrap">
+    <div class="find-grid">
+      <div class="rise">
+        <div class="sec-head" style="margin-bottom: 2rem">
+          <p class="eyebrow">Hitta hit</p>
+          <h2><em class="script">Lilla Väsby 15</em></h2>
+        </div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">Adress</span>
+            <span class="v">Lilla Väsby 15, 740 12 Almunge</span>
+          </div>
+          <div class="detail">
+            <span class="k">Telefon</span>
+            <span class="v"><a href="tel:+46724461323">072 446 13 23</a></span>
+          </div>
+          <div class="detail">
+            <span class="k">E-post</span>
+            <span class="v"><a href="mailto:bageri@fl-ab.se">bageri@fl-ab.se</a></span>
+          </div>
+          <div>
+            <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&amp;query=Lilla+V%C3%A4sby+15%2C+Almunge" target="_blank" rel="noopener">Visa på karta</a>
+          </div>
+        </div>
+      </div>
+
+      <dl class="route rise">
+        <div>
+          <dt>Från Uppsala</dt>
+          <dd>Cirka 30 km österut på väg 282 mot Almunge. Räkna med en halvtimmes bilresa.</dd>
+        </div>
+        <div>
+          <dt>Från Stockholm</dt>
+          <dd>Knappt 70 km norrut. Kör mot Uppsala och vidare på 282.</dd>
+        </div>
+        <div>
+          <dt>Parkering</dt>
+          <dd>Det finns plats att ställa bilen direkt vid bageriet.</dd>
+        </div>
+        <div>
+          <dt>Buss</dt>
+          <dd>UL:s linjer trafikerar Almunge från Uppsala. Sista biten är promenad eller cykel.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="fcol">
+        <p class="script">Bageri Liss</p>
+        <p class="fine">Hantverksbageri i Lilla Väsby, Almunge.</p>
+      </div>
+      <div class="fcol">
+        <p class="eyebrow">Öppettider</p>
+        <p>Ons – fre: 08 – 17</p>
+        <p>Lördag: 09 – 14</p>
+        <p class="fine">Söndag – tisdag stängt</p>
+      </div>
+      <div class="fcol">
+        <p class="eyebrow">Kontakt</p>
+        <p>Lilla Väsby 15, Almunge</p>
+        <p><a href="tel:+46724461323">072 446 13 23</a></p>
+        <p><a href="mailto:bageri@fl-ab.se">bageri@fl-ab.se</a></p>
+      </div>
+      <div class="fcol">
+        <p class="eyebrow">Följ oss</p>
+        <p><a href="https://www.facebook.com/p/Bageri-Liss-100088125858633/" target="_blank" rel="noopener">Facebook →</a></p>
+        <p class="fine">Dagens bak och öppettider läggs ut där.</p>
+      </div>
+    </div>
+    <p class="foot-rule">© 2026 Bageri Liss</p>
+  </div>
+</footer>
+
+
+<script>
+  (function () {
+    var items = document.querySelectorAll('.rise');
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
